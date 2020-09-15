@@ -44,7 +44,7 @@ class Game {
     form.hide();
 
     Player.getPlayerInfo();
-    
+    player.getPlayerRank();
     if(allPlayers !== undefined){
       //var display_position = 100;
       
@@ -90,12 +90,15 @@ class Game {
 
     if(player.distance>3860){
       gameState=2;
+      player.rank+=1;
+      Player.updatePlayerRank(player.rank);
     }
 
     drawSprites();
   }
   end(){
     console.log("gameEnded");
+    console.log(player.rank);
     //game.update(2);
   }
 }
